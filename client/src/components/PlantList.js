@@ -7,12 +7,21 @@ export default class PlantList extends Component {
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
-
+  constructor(props) {
+    super(props);
+    this.state = { plants: [{ name: "...loading", id: 0 }] };
+  }
+  componentDidMount() {
+    axios
+      .get("http://localhost:3333/plants")
+      .then((r) => this.setState({ plants: r.data.plantsData }))
+      .catch((e) => console.log(e));
+  }
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
     return (
       <main className="plant-list">
-        {this.state?.plants?.map((plant) => (
+        {this.state.plants.map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
             <div className="plant-details">
@@ -21,8 +30,18 @@ export default class PlantList extends Component {
               <p>{plant.description}</p>
               <div className="plant-bottom-row">
                 <p>${plant.price}</p>
-                <p>☀️ {plant.light}</p>
-                <p>💦 {plant.watering}x/month</p>
+                <p>
+                  <span role="img" aria-label="sun">
+                    ☀️
+                  </span>{" "}
+                  {plant.light}
+                </p>
+                <p>
+                  <span role="img" aria-label="water">
+                    💦
+                  </span>{" "}
+                  {plant.watering}x/month
+                </p>
               </div>
               <button
                 className="plant-button"
