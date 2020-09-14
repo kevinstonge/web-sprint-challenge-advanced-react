@@ -2,17 +2,17 @@
 import { useState } from "react";
 
 const useForm = (initialValues) => {
-  const { formValues, setFormValues } = useState(initialValues);
+  const [values, setValues] = useState(initialValues);
 
-  const changeFormValue = (event) => {
+  const setValue = (event) => {
     event.persist();
-    setFormValues({
-      ...formValues,
+    setValues({
+      ...values,
       [event.target.name]: event.target.value,
     });
   };
 
-  return [changeFormValue, formValues];
+  return [values, setValue];
 };
 
 export default useForm;

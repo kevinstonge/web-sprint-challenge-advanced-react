@@ -26,33 +26,65 @@ const CheckoutForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
-        <label>
+        <label htmlFor="firstName">
           First Name:
           <input
             name="firstName"
+            id="firstName"
+            data-testid="firstName"
             value={values.firstName}
             onChange={setValue}
           />
         </label>
-        <label>
+        <label htmlFor="lastName">
           Last Name:
-          <input name="lastName" value={values.lastName} onChange={setValue} />
+          <input
+            name="lastName"
+            id="lastName"
+            data-testid="lastName"
+            value={values.lastName}
+            onChange={setValue}
+          />
         </label>
-        <label>
+        <label htmlFor="address">
           Address:
-          <input name="address" value={values.address} onChange={setValue} />
+          <input
+            name="address"
+            id="address"
+            data-testid="address"
+            value={values.address}
+            onChange={setValue}
+          />
         </label>
-        <label>
+        <label htmlFor="city">
           City:
-          <input name="city" value={values.city} onChange={setValue} />
+          <input
+            name="city"
+            id="city"
+            data-testid="city"
+            value={values.city}
+            onChange={setValue}
+          />
         </label>
-        <label>
+        <label htmlFor="state">
           State:
-          <input name="state" value={values.state} onChange={setValue} />
+          <input
+            name="state"
+            id="state"
+            data-testid="state"
+            value={values.state}
+            onChange={setValue}
+          />
         </label>
-        <label>
+        <label htmlFor="zip">
           Zip:
-          <input name="zip" value={values.zip} onChange={setValue} />
+          <input
+            name="zip"
+            id="zip"
+            data-testid="zip"
+            value={values.zip}
+            onChange={setValue}
+          />
         </label>
         <button>Checkout</button>
       </form>
