@@ -35,7 +35,8 @@ h1 {
   text-align: center;
 }
 
-.plant-list {
+.plant-list,
+.filterBox {
   padding-top: 32px;
   max-width: 1200px;
   margin: 0 auto;
@@ -250,4 +251,11 @@ pre {
 .active {
   color: #0e101c;
   border-bottom: 2px solid !important;
+}
+
+button:disabled {
+  background-color: #333;
+}
+button:disabled:hover {
+  cursor: default;
 }
